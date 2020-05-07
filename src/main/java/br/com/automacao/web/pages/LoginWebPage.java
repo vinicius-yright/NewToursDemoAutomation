@@ -12,32 +12,39 @@ public class LoginWebPage {
         PageFactory.initElements(webDriver, this);
     }
 	
-	@FindBy(id = "user-name")
-	private WebElement usernameCampo;
+	@FindBy(xpath = "//a[contains(text(),'SIGN-ON')]")
+	private WebElement btnSignOn;
 	
-	@FindBy(id = "password")
-	private WebElement usernamePassword;
+	@FindBy(xpath = "//input[@name='userName']")
+	private WebElement inputUserName;
 	
-	@FindBy(xpath = "//input[@class='btn_action']")
-	private WebElement botaoLogin;
+	@FindBy(xpath = "//input[@name='password']")
+	private WebElement inputPassword;
 	
-	@FindBy(xpath = "//div[@class='product_label']")
-	private WebElement tagValidacao;
+	@FindBy(xpath = "//input[@name='login']")
+	private WebElement btnLogin;
 	
-	public WebElement getBotaoLogin() {
-		return botaoLogin;
-	}
-	
-	public WebElement getUsernameCampo() {
-		return usernameCampo;
+	@FindBy(xpath = "//img[@src='/images/masts/mast_flightfinder.gif']")
+	private WebElement imgFlightFinder;
+
+	public WebElement getImgFlightFinder() {
+		return imgFlightFinder;
 	}
 
-	public WebElement getUsernamePassword() {
-		return usernamePassword;
+	public WebElement getBtnSignOn() {
+		return btnSignOn;
 	}
-	
-	public WebElement getTagValidacao() {
-		return tagValidacao;
+
+	public WebElement getInputUserName() {
+		return inputUserName;
+	}
+
+	public WebElement getInputPassword() {
+		return inputPassword;
+	}
+
+	public WebElement getBtnLogin() {
+		return btnLogin;
 	}
 	
 }

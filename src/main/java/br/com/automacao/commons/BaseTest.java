@@ -1,5 +1,7 @@
 package br.com.automacao.commons;
 
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -9,12 +11,13 @@ public class BaseTest {
 	protected static WebDriver segundoDriver;
 	protected static WebDriverWait wait;
 	
-	protected void initializeWebApplication(WebApplication webApplication, boolean valor) {
+	
+	protected void initializeWebApplication(WebApplication webApplication, boolean value) {
 		webDriver = webApplication.getDriver();
 		webDriver.manage().window().maximize();
-		if (valor == true) {
+		if (value == true) {
 			webDriver.get(PropertiesManager.getPropertiesValue("URL_QA"));
-		} else if (valor == false) {
+		} else if (value == false) {
 			webDriver.get(PropertiesManager.getPropertiesValue("URL_DEV"));
 		}
 		wait = new WebDriverWait(webDriver, 30);

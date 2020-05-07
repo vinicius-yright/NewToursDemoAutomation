@@ -1,33 +1,47 @@
 package automacao.src.test.java.br.com.steps.web;
 
-import org.junit.Assert;
+import br.com.automacao.web.funcionalidade.LoginWebFunctionality;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import junit.framework.Assert;
 
-
-import br.com.automacao.web.funcionalidade.LoginWebFuncionalidade;
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.E;
-import cucumber.api.java.pt.Entao;
-
+@SuppressWarnings("deprecation")
 public class LoginWebSteps {
 	
-	private LoginWebFuncionalidade loginWebFuncionalidade;
+	private LoginWebFunctionality loginWebFuncionalidade;
 	
 	public LoginWebSteps() {
-		this.loginWebFuncionalidade = new LoginWebFuncionalidade();
+		this.loginWebFuncionalidade = new LoginWebFunctionality();
 	}
 	
-	@Dado("^que insiro dados validos nos campos username e senha$")
-	public void queInsiroDadosValidosNosCamposUsernameESenha()  {
-		this.loginWebFuncionalidade.loginUsuarios();
-	}
-	@E("^eu clico no botao LOGIN$")
-	public void euClicoNoBotaoLOGIN() {
-		this.loginWebFuncionalidade.clicaBotaoLogin();
+
+	@Given("^that i'm on the home page$")
+	public void thatIMOnTheHomePage(){
+		System.out.println("Beginning...");
 	}
 
-	@Entao("^espero visualizar os \"([^\"]*)\"$")
-	public void esperoVisualizarOs(String mensagemProducts){
-		Assert.assertEquals("Products", this.loginWebFuncionalidade.verificaPagHome());
+	@And("^i click on the Sign-On button$")
+	public void iClickOnTheSignOnButton(){
+		this.loginWebFuncionalidade.clickSignOn();
+	}
+	
+	@And("^i write the correct Username$")
+	public void iWriteTheCorrectUsername() {
+		this.loginWebFuncionalidade.writesOnInputs();
+	}
+
+
+	@When("^i click on the Sign-In button$")
+	public void iClickOnTheSignInButton() {
+		this.loginWebFuncionalidade.clickSignIn();
+	}
+
+
+	@Then("^i see the Flight Finder page$")
+	public void iSeeTheFlightFinderPage() {
+		Assert.assertEquals(true, this.loginWebFuncionalidade.checkImg());
 	}
 
 	
