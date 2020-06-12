@@ -6,6 +6,6 @@ Summary of available tags to be used on Runtest:
 
 2: @register - Creates a new user on the http://newtours.demoaut.com/ website using the data previously gathered from the 4devs website. The username used is "Suiciniv" + randomNumber.
 
-3: @login - Simply logs in using the previously created registeer.
+3: @login - Simply logs in using the previously created register.
 
 4: @booking - Logs in on the http://newtours.demoaut.com/ website and then books a trip for 2 passengers, from Sydney to San Francisco, using the Economy Class on the Unified Airlines.
